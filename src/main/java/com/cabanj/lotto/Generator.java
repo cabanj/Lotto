@@ -4,24 +4,17 @@ import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class Generator {
+class Generator {
     /**
      * Default limit is 50 since numbers range is 1-49
      */
     private int limit = 49;
+    /**
+     * Generate 6 numbers
+     */
     private int count = 6;
 
-    /**
-     * Construct with default values 6 numbers up to 49
-     */
-    public Generator(){}
-
-    public Generator(int limit, int count) {
-        this.limit = limit;
-        this.count = count;
-    }
-
-    private Set<Integer> generate(){
+    Set<Integer> generate() {
         Set<Integer> numbers = new TreeSet<>();
         for(int i = 0; i < count; i++){
            addUniqueNumber(numbers);
@@ -38,16 +31,9 @@ public class Generator {
         numbers.add(number);
     }
 
-    public void print(int iterations){
+    void print(int iterations) {
         for (int i = 0; i < iterations; i++) {
             System.out.println(generate());
         }
-    }
-
-    /**
-     * Default generation of one set of numbers
-     */
-    public void print(){
-        print(1);
     }
 }
