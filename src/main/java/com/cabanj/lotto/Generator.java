@@ -8,7 +8,7 @@ public class Generator {
     /**
      * Default limit is 50 since numbers range is 1-49
      */
-    private int limit = 50;
+    private int limit = 49;
     private int count = 6;
 
     /**
@@ -23,11 +23,19 @@ public class Generator {
 
     private Set<Integer> generate(){
         Set<Integer> numbers = new TreeSet<>();
-        Random random = new Random();
         for(int i = 0; i < count; i++){
-            numbers.add(random.nextInt(limit));
+           addUniqueNumber(numbers);
         }
         return numbers;
+    }
+
+    private void addUniqueNumber(Set<Integer> numbers) {
+        Random random = new Random();
+        int number = random.nextInt(limit) + 1;
+        if (numbers.contains(number)){
+            addUniqueNumber(numbers);
+        }
+        numbers.add(number);
     }
 
     public void print(int iterations){
