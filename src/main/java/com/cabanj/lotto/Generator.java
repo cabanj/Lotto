@@ -15,7 +15,6 @@ class Generator {
     private int count = 6;
     private Random random = new Random();
 
-
     Set<Integer> generate() {
         Set<Integer> numbers = new TreeSet<>();
         for(int i = 0; i < count; i++){
