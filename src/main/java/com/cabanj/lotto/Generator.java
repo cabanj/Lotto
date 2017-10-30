@@ -13,6 +13,8 @@ class Generator {
      * Generate 6 numbers
      */
     private int count = 6;
+    private Random random = new Random();
+
 
     Set<Integer> generate() {
         Set<Integer> numbers = new TreeSet<>();
@@ -23,7 +25,6 @@ class Generator {
     }
 
     private void addUniqueNumber(Set<Integer> numbers) {
-        Random random = new Random();
         int number = random.nextInt(limit) + 1;
         if (numbers.contains(number)){
             addUniqueNumber(numbers);
